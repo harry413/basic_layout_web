@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from './Components/LoadingSpinner'
+
+import CompanyInfo from "./Components/CompanyInfo";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import Navbar from "./Components/Navbar";
+import Testimonials from "./Components/Testimonials";
+import ContactUs from './Components/Contact';
+
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading delay
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      {
+      loading ? <LoadingSpinner /> : 
+      <div>
+        <Navbar/>
+        <Header/>
+        <CompanyInfo/>
+        <Testimonials/>
+        <ContactUs/>
+        <Footer/>
+      </div>
+      }
     </div>
   );
 }
