@@ -19,7 +19,7 @@ function App() {
     }, 4000);
   }, []);
   return (
-    <div className="">
+    <div className="font-sans">
       {
       loading ? <LoadingSpinner /> : 
       <div>
